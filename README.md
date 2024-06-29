@@ -2,15 +2,14 @@
 
 *Yiheng Li, Chongjian Ge, Chenran Li, Chenfeng Xu, Masayoshi Tomizuka, Chen Tang, Mingyu Ding, Wei Zhan*
 
-Official Github Repo for WOMD-Reasoning: A Large-Scale Language Dataset for Interaction and Driving Intentions Reasoning.
+Official Github Repo for WOMD-Reasoning: A Large-Scale Language Dataset for Interaction and Driving Intentions Reasoning. Waymo Open Motion Dataset and WOMD are trademarks of Waymo LLC, and are used here by permission.
 
 ## Introduction
 WOMD-Reasoning is by far the largest real-world language dataset for autonomous driving containing description and reasoning labels for diverse interaction scenarios.
 
 ## Data Source
 The dataset is built based on [Waymo Open Motion Dataset (WOMD)](https://waymo.com/open/data/motion/). Please refer to WOMD for the motion data. 
-You must register at [WOMD Website](https://waymo.com/open) and agree to their [Terms](https://waymo.com/open/terms/) to use THIS language annotation dataset.
-
+You must register at [WOMD Website](https://waymo.com/open) and agree to their [Terms](https://waymo.com/open/terms/) in addition to the terms of THIS language annotation dataset.
 
 ## Data Structure
 ### File Description
