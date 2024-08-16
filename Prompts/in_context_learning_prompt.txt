@@ -1,0 +1,124 @@
+Here is one given example that you can refer to to help you better understand you responsibility <Fourth> and <Fifth>:
+For the input case of:
+[start of input]
+The ego agent is in intersection. The intersection center is 10.0 meters in front of the ego agent, and is 1.0 meters on the left of the ego agent. The intersection is a 4-way intersection. 
+It is going straight. It is exiting the intersection. It 's current speed is 6 m/s. It is accelerating. The ego agent is approaching a stop sign 1 meters ahead. There are 4 stop signs in the intersection. The ego agent is approaching a crosswalk 1 meters ahead. 
+Surrounding agent # 0 is a vehicle. It is 4 meters on the left of the ego agent, and is 2 meters behind the ego agent. It is heading the opposite direction as the ego agent. Its current speed is 9 m/s. It is accelerating. It is departing from the intersection. It is on the same side of the intersection as the ego agent. It is 12 meters away from the intersection center. 
+Surrounding agent # 1 is a vehicle. It is 12 meters in front of the ego agent, and is 11 meters on the right of the ego agent. It is heading left of the ego agent. It is not moving. It is heading towards the intersection. It is on the right of the intersection. It is 12 meters away from the intersection center. It is at a stop sign. It is approaching a crosswalk 2 meters ahead. 
+Surrounding agent # 3 is a vehicle. It is 8 meters behind the ego agent, and is on the same lane as the ego agent. It is heading in the same direction as the ego agent. It is not moving. It is heading towards the intersection. It is on the same side of the intersection as the ego agent. It is 19 meters away from the intersection center. It is approaching a stop sign 9 meters ahead. It is approaching a crosswalk 3 meters ahead. 
+Surrounding agent # 0 will be 39 meters behind the ego agent, and will be 15 meters on the left of the ego agent. It will be heading the opposite direction as the ego agent. Its speed will be 12 m/s. It will be departing from the intersection. Looking from the agent's current angle, it will be on the same side of the intersection. It will be 44 meters away from the intersection center. 
+Surrounding agent # 1 will be 13 meters on the right of the ego agent, and will be 0 meters in front of the ego agent. It will be heading left of the ego agent. It will not be moving. It will be heading towards the intersection. Looking from the agent's current angle, it will be on the right of the intersection. It will be 12 meters away from the intersection center. 
+The ego agent will be 8 meters in front of the current place, and will be on the same lane as the current place. It will be heading in the same direction as the current moment. Its speed will be 4 m/s. It will be in the intersection. 
+Surrounding agent # 3 will be 12 meters behind the ego agent, and will be 3 meters on the left of the ego agent. It will be heading in the same direction as the ego agent. Its speed will be 3 m/s. It will be heading towards the intersection. Looking from the agent's current angle, it will be on the same side of the intersection. It will be 15 meters away from the intersection center. 
+[end of input]
+
+you may give the following analysis:
+[Int QA]
+[Q] What kind of interaction can be expected between the ego agent and surrounding agent #0 given their positions and directions?
+[A] Surrounding agent #0 will have no interaction with the ego agent as their intended paths have no conflicts.
+
+[Q] How will the presence of the stop sign affect the interaction between the ego agent and surrounding agent #1?
+[A] Surrounding agent #1 will yield to the ego agent because they are both going into the intersection, but surrounding agent #1 is at a stop sign and not moving while the ego agent is already inside the intersection.
+
+[Q] What interaction is to occur between the ego agent and surrounding agent #3 who is behind the ego agent in the same lane?
+[A] Surrounding agent #3 will follow the ego agent, as it could catch up with the ego intentionally, and they do not have traffic control conflicts, but surrounding agent #3 is behind the ego agent in the same lane.
+[End Int QA]
+
+[Intention]
+[Q] What will the ego agent aim to do in the upcoming moments?
+[A] The ego agent intends to continue exiting the intersection. There is a stop sign on its side but it has already stopped and started afterwards. Surrounding agent #1 will yield to it so the ego agent does not need to respond. Surrounding agent #3 will follow it but the ego agent does not need to respond as well. Therefore, the ego agent will continue in the intersection and finish its left turn.
+[End Intention]
+
+Here is another given example that you can refer to to help you better understand you responsibility <Fourth> and <Fifth>:
+[start of input]
+The ego agent is heading towards intersection. The intersection center is 28.0 meters in front of the ego agent, and is 3.0 meters on the left of the ego agent. The intersection is a 3 way intersection. 
+The ego agent is on the 2 lane from the left, out of 3 lanes. It 's current speed is 0 m/s. It is decelerating. Traffic Light for the ego agent is red 9.6 meters ahead. The ego agent is approaching a crosswalk 3 meters ahead. 
+Surrounding agent # 0 is a vehicle. It is 29 meters in front of the ego agent, and is 4 meters on the right of the ego agent. It is heading left of the ego agent. Its current speed is 6 m/s. It is accelerating. It is in the intersection. It is 29 meters away from the ego agent. The ego agent is at a speed bump. 
+The following is the description of the ego and surrounding agents after 3.0 seconds:
+Surrounding agent # 0 will be 8 meters in front of the ego agent, and will be 7 meters on the left of the ego agent. It will be heading the opposite direction as the ego agent. Its speed will be 9 m/s. It will be departing from the intersection. Looking from the agent's current angle, it will be on the same side of the intersection. It will be 16 meters away from the intersection center. 
+The ego agent will be 5 meters in front of the current place, and will be on the same lane as the current place. It will be heading in the same direction as the current moment. Its speed will be 1 m/s. It will be heading towards the intersection. Looking from the agent's current angle, it will be on the same side of the intersection. It will be 23 meters away from the intersection center. 
+[end of input]
+
+you may give the following analysis:
+
+[Int QA]
+[Q] What kind of interaction can be expected between the ego agent and surrounding agent #0?
+[A] The ego agent will yield to surrounding agent #0 because they are both approaching the intersection and the traffic light is red for the ego agent, indicating that the ego agent must stop.
+
+[Intention]
+[Q] What will the ego agent aim to do in the upcoming moments?
+[A] The ego agent intends to enter the intersection, but it has to stop at the red traffic light and wait for it to change to green before proceeding through the intersection. It will also yield to surrounding agents #0 who is already in the intersection. Therefore, the ego agent will wait until the lights turn green and the surrounding agent #0 passes before entering the intersection. 
+[End Intention]
+
+Here is another given example that you can refer to to help you better understand you responsibility <Fourth> and <Fifth>:
+[start of input]
+No intersection involved in this scene.
+
+The ego agent is on the 2 lane from the left, out of 3 lanes. It 's current speed is 16 m/s. It is moving at a constant speed. 
+Surrounding agent # 0 is a vehicle. It is 11 meters behind the ego agent, and is on the same lane as the ego agent. It is heading in the same direction as the ego agent. Its current speed is 18 m/s. It is accelerating. It is 11 meters away from the ego agent. 
+Surrounding agent # 5 is a vehicle. It is 55 meters in front of the ego agent, and is 6 meters on the left of the ego agent. It is heading the opposite direction as the ego agent. Its current speed is 18 m/s. It is accelerating. It is 56 meters away from the ego agent. 
+The following is the description of the ego and surrounding agents after 3.0 seconds:
+Surrounding agent # 0 will be 3 meters on the right of the ego agent, and will be 2 meters in front of the ego agent. It will be heading in the same direction as the ego agent. Its speed will be 20 m/s. 
+The ego agent will be 47 meters in front of the current place, and will be on the same lane as the current place. It will be heading in the same direction as the current moment. Its speed will be 16 m/s. 
+Surrounding agent # 5 will be 41 meters behind the ego agent, and will be 6 meters on the left of the ego agent. It will be heading the opposite direction as the ego agent. Its speed will be 18 m/s. 
+[end of input]
+
+you may give the following analysis:
+
+[Int QA]
+[Q] What will the interaction be between the ego agent and surrounding agent #0?
+[A] The surrounding agent #0 will overtake the ego agent from the right.
+
+[Q] What will be the nature of interactions between the ego agent and surrounding agent #5?
+[A] The surrounding agent #5 will pass the ego agent.
+
+[Intention]
+[Q] What will the ego agent aim to do in the upcoming moments?
+[A] The ego agent intends to continue straight. The surrounding agent #0 will overtake it from its right, and the surrounding agent #5 will pass it from the opposite side. Therefore, the ego agent should continue straight while watching for surrounding agent #0.
+[End Intention]
+
+Here is another given example that you can refer to to help you better understand you responsibility <Fourth> and <Fifth>:
+[start of input]
+The ego agent is heading towards intersection. The intersection center is 31.0 meters in front of the ego agent, and is 4.0 meters on the left of the ego agent. The intersection is a 3 way intersection. 
+The ego agent is on the 2 lane from the left, out of 4 lanes. Its current speed is 4 m/s. It is accelerating. There are 2 stop signs in the intersection. But no stop sign is on the ego agent's side. 
+Surrounding agent # 0 is a vehicle. It is 3 meters on the right of the ego agent, and is 2 meters in front of the ego agent. It is heading in the same direction as the ego agent. Its current speed is 1 m/s. It is moving at a constant speed. It is heading towards the intersection. It is on the same side of the intersection as the ego agent. It is 30 meters away from the intersection center.
+
+The following is the description of the ego and surrounding agents after 3.0 seconds:
+Surrounding agent # 0 will be 5 meters in front of the ego agent, and will be on the same lane as the ego agent. It will be heading in the same direction as the ego agent. Its speed will be 2 m/s. It will be heading towards the intersection. Looking from the agent's current angle, it will be on the same side of the intersection. It will be 24 meters away from the intersection center. 
+The ego agent will be 2 meters in front of the current place, and will be on the same lane as the current place. It will be heading in the same direction as the current moment. Its speed will be 1 m/s. It will be heading towards the intersection. Looking from the agent's current angle, it will be on the same side of the intersection. It will be 29 meters away from the intersection center. 
+[end of input]
+
+you may give the following analysis:
+
+[Int QA]
+[Q] What interactions are anticipated between the ego agent and surrounding agent #0 as they approach the intersection?
+[A] Surrounding agent #0 will overtake the ego agent as it is moving from its right to its front.
+[End Int QA]
+
+[Intention]
+[Q] Considering the current traffic scenario, what is the ego agent likely to do next?
+[A] The ego agent intends to continue towards the intersection. It will be overtaken by surrounding agent #0. The ego agent will follow surrounding agent #0 to continue.
+[End Intention]
+
+Here is another given example that you can refer to to help you better understand you responsibility <Fourth> and <Fifth>:
+[start of input]
+The ego agent is heading towards intersection. The intersection center is 4.0 meters on the left of the ego agent, and is 3.0 meters in front of the ego agent. The intersection is a 3 way intersection. 
+The ego agent is on the only lane in this direction. Its current speed is 2 m/s. It is decelerating. 
+Surrounding agent # 1 is a vehicle. It is 9 meters on the left of the ego agent, and is 5 meters in front of the ego agent. It is heading the opposite direction as the ego agent. Its current speed is 1 m/s. It is moving at a constant speed. It is heading towards the intersection. It is at the opposite side of the intersection. It is 6 meters away from the intersection center. 
+The following is the description of the ego and surrounding agents after 3.0 seconds:
+Surrounding agent # 1 will be 12 meters behind the ego agent, and will be 4 meters on the left of the ego agent. It will be heading right of the ego agent. Its speed will be 2 m/s. It will be heading towards the intersection. Looking from the agent's current angle, it will be at the opposite side of the intersection. It will be 3 meters away from the intersection center.
+The ego agent will be 7 meters in front of the current place, and will be 5 meters on the right of the current place. It will be heading right of the current moment. Its speed will be 3 m/s. It will be departing from the intersection. Looking from the agent's current angle, it will be on the same side of the intersection. It will be 10 meters away from the intersection center. 
+[end of input]
+
+you may give the following analysis:
+
+[Int QA]
+[Int QA]
+[Q] How will the ego agent and surrounding agent #1 interact?
+[A] Surrounding agent #1 will yield to the ego agent, as they are both in a narrow intersection and the ego agent enters before it.
+[End Int QA]
+
+[Intention]
+[Q] What is the ego agent planning to do shortly?
+[A] The ego agent intends to turn left. It will yield to the ego agent as it enters the intersection first. Then, it will continue its left turn.
+[End Intention]

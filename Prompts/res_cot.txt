@@ -1,0 +1,59 @@
+You are responsible for the following responsibilities:
+
+<First>, print "[Env QA]". Generate Q&A on all the scenario description inputs about the scenario environment. The Q&A must be in the following format:
+"[Q][Question content]
+[A][Answer content]"
+The Q&A should cover ALL information about the CURRENT moment in the input description. No information in the provided future moment should be used. Your questions should include all the questions in the following categories except the answer is not mentioned in the input:
+(1) About the intersection: its existence? Its type?
+(2) About the lanes: How many lanes on ego's side?
+(3) About stop signs: its existence? where is it? which direction is it for?
+(4) About crosswalks: its existence? where is it?
+(5) About speed bumps: its existence? where is it?
+For each scene, you should ask at least one [Q] for every "?" mentioned in the categories except the answer is not mentioned in the input, and you should ask questions as many as possible. Each answer must match the question without any additional information, and do not ask questions whose answer is not mentioned in the input. If you do have additional information to one question, ask a new question for this information. Always try to separate your question into as many questions as possible. Try to ask each question in diverse ways, and give open and high-level questions. Try not to use the exact same format for any two questions, even though they are asking the same thing. Do not use choice questions. The answers should be accurate according to the input. Remember that anything not mentioned does not exist in the scene, so you should not consider or assume about it in the output. If anything is not mentioned, it does not exist. Therefore, do not output words like "not mentioned" because this is inaccurate. Print "[End Env QA]" at last.
+
+<Second>, print "[Ego QA]". Generate Q&A on all the scenario description inputs about the the ego agent. The Q&A must be in the following format:
+"[Q][Question content]
+[A][Answer content]"
+The Q&A should cover ALL information about the CURRENT moment in the input description. No information in the provided future moment should be used. Your questions should include all the questions in the following categories:
+(1) About its motion: its speed? its motion status?
+(2) About its position: its position? its lane? 
+(3) About its direction: its facing direction? its turning direction?
+(4) About the traffic light: its status? its influence?
+(5) About the stop sign: its existence? its position?
+(6) About the crosswalk: its existence? its position?
+(7) About the speed bump: its existence? its position?
+For each scene, you should ask at least one [Q] for every "?" mentioned in the categories except the answer is not mentioned in the input, and you should ask questions as many as possible. Each answer must match the question without any additional information, and do not ask questions whose answer is not mentioned in the input. If you do have additional information to one question, ask a new question for that information. Always try to separate your question into as many questions as possible. Try to ask each question in diverse ways, and give open and high-level questions. Try not to use the exact same format for any two questions, even though they are asking the same thing. Do not use choice questions. The answers should be accurate according to the input. Remember that anything not mentioned does not exist in the scene, so you should not consider or assume about it in the output. If anything is not mentioned, it does not exist. Therefore, do not output words like "not mentioned" because this is inaccurate. Print "[End Ego QA]" at last.
+
+<Third>, print "[Sur QA]" and generate Q&A on all the scenario description inputs about surrounding agents. The Q&A must be in the following format:
+"[Q][Question content]
+[A][Answer content]"
+The Q&A should cover ALL information about the CURRENT moment in the input description. No information in the provided future moment should be used. For each surrounding agent, your questions should include all the questions in the following categories except the answer is not mentioned in the input:
+(1) About itself: its type?
+(2) About its motion: its speed? its motion status?
+(3) About its position: its position to the ego agent? its position to the intersection? its lane? 
+(4) About its direction: its facing direction to the intersection? its facing direction to the ego agent? 
+(5) About the traffic light: its status? its influence?
+(6) About the stop sign: its existence? its position?
+(7) About the crosswalk: its existence? its position?
+(8) About the speed bump: its existence? its position?
+For each surrounding agent, you should ask at least one [Q] for every "?" mentioned in the categories, and you should ask questions as many as possible. Each answer must match the question without any additional information. If you do have additional information, ask a new question. Always try to separate your question into as many questions as possible. Try to ask each question in diverse ways, and give open and high-level questions. Try not to use the exact same format for any two questions, even though they are asking the same thing. Do not use choice questions. The answers should be accurate according to the input. Remember that anything not mentioned does not exist in the scene, so you should not consider or assume about it in the output. If anything is not mentioned, it does not exist. Therefore, do not output words like "not mentioned" because this is inaccurate. Do not omit QAs even if they are similar. Print "[End Sur QA]" at last of this responsibility.
+
+<Fourth>, start a new paragraph and print "[Int QA]". For each surrounding agent, start a new paragraph and provide one Q&A for the interactions between it and the ego agent. The Q&A must be in the following format:
+"[Q][Question content]
+[A][Answer content]"
+Here [Question content] should have the meaning "What interactions will happen between surrounding agent #n and the ego agent?" without any additional information like "considering what" or "given what", but you must use diverse ways to put it. (i.e. ask in different ways for different surrounding agents) When providing [Answer content], you should use the descriptions for both the current moment and the future moment, and analyze based on them. Pay attention to the special situations where you should consider that there is an interaction:
+(1) If the surrounding and the ego agents are both close (less than 30 meters) to the intersection and any traffic light or stop sign exists for this intersection, the two agents must have interactions caused by the traffic controls, except if they are at the same side of the intersection and they are in the same direction. Refer to the description for current and future moment, clearly state who yields to whom and the reason for the interaction. If this applies, focus on this and skip other situations.
+(2) If the ego vehicle is at a crosswalk and the surrounding pedestrian is also at that crosswalk being nearly directly to the left or right of the ego vehicle, there are interactions caused by yielding rule on the crosswalks. Refer to the description for current and future moment, clearly state who yields to whom and the reason for the yielding.
+(3) If the above situations do not apply, here are some other kinds of interactions for you to consider: follow, lead, block, pass, overtake. For follow and lead, the two agents must be in the same lane. If two agents pass each other with a very close distance, say who pass who very closely. For overtaking, you should refer to the positional change, not only the speed difference. For each interaction, refer to the description for current and future moment and clearly state which agent have what interaction with which another agent. Focus more on positional change than the speed difference.
+Do not provide the exact number in your answers. Note that you should always consider Print "[End Int QA]" at last of this responsibility.
+Remember to use diverse ways to put the [Answer content] for each surrounding agent. Do not include any numbers regarding speeds or positions in your [Answer content]. When providing reasons for the interaction, you cannot quote the future moment information.
+
+<Fifth>, for the ego agent, start a new paragraph, print "[Intention]", and provide one Q&A for the intention of the ego agent. The Q&A must be in the following format:
+"[Q][Question content]
+[A][Answer content]"
+Here [Question content] should have the meaning "What will be the intention of the ego agent?", but you must use diverse ways to put it. When providing [Answer content], and think about following questions in the time period from now to the provided future moment based on given description:
+(1) What is the ego agent's intention if no other agents exist?
+(2) If applicable, what actions does the ego agent take to respond to traffic lights, stop signs, crosswalks, speed bumps and traffic rules? If some traffic controls are not applicable, do not output on that.
+(3) In each interaction involving the ego agent, what actions do the ego and surrounding agent take to respond to each other? If one agent does not have interaction with the ego agent, exclude it in your answer. 
+Then give the ego agent's intention, and give a concise reason of it. For interactions, you should include each one with the counterpart's number. If some issues are not applicable, do not include it in your answer. Print "[End Intention]" at last of this responsibility.
+Remember to use diverse ways to put the [Answer content]. Do not include any numbers regarding speeds or positions in your [Answer content].

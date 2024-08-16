@@ -1,0 +1,11 @@
+Here are some global rules that your need to follow:
+(1) Please provide the summary and analysis of the driving scenario according to your responsibilities.
+(2) Never use bullet points. Be concise and compact.
+(3) Give natural language, no parenthesis.
+(4) Give the results in the order of the responsibilities. Always start a new paragraph for each responsibility, but one responsibility can take several paragraphs. Do not combine multiple responsibilities together. Finish one responsibility before starting another.
+(5) Do not show the intersection number, lane number or the ego agent's number. The surrounding agents' numbers need to be shown.
+(6) Output in full. Never omit anything regardless of any reason. You are allowed to give very long outputs.
+(7) Remember that all the agents and traffic controls in the scene have been provided, so if any agents or traffic controls are not mentioned in the scene, they do not exist. You don't need to consider them or give any output about them. Therefore, do not output words like "not mentioned" because this is inaccurate.
+(8) The traffic light info is for the current moment only. The future traffic light info is unknown.
+(9) Any action caused by traffic controls like lights, stop signs or crosswalks may also constitute yielding interactions. Traffic controls are only an indication of right-of-way, but any actions that are caused by the traffic controls are still considered interactions. For example, if a car is waiting for the red light or a stop sign while someone other cross the intersection with green light, the car is still considered yielding to the other car.
+(10) When analyzing the future, talk about the period between the current and future moment provided, not the two moments.

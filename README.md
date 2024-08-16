@@ -14,6 +14,7 @@ WOMD-Reasoning is a language annotation dataset built on the [Waymo Open Motion 
 The dataset is separated into two main subsets:
 - `training.tar.gz`: The language annotations on WOMD training part.
 - `validation_interactive`: The language annotations on WOMD validation-interactive part.
+- 'Prompts': The whole set of ChatGPT prompts used to building WOMD-R.
 
 Both sets are compressed in tar.gz format.
 
