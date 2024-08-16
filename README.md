@@ -15,6 +15,7 @@ The dataset is separated into two main subsets:
 - `training.tar.gz`: The language annotations on WOMD training part.
 - `validation_interactive`: The language annotations on WOMD validation-interactive part.
 - 'Prompts': The whole set of ChatGPT prompts used to building WOMD-R.
+- 'Motion_Data_2_Raw_Language_Translator.py': The program to convert WOMD motion data into raw language.
 
 Both sets are compressed in tar.gz format.
 
