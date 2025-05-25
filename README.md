@@ -1,8 +1,8 @@
-# WOMD-Reasoning
+# [ICML 2025] WOMD-Reasoning
 
 *Yiheng Li, Chongjian Ge, Chenran Li, Chenfeng Xu, Masayoshi Tomizuka, Chen Tang, Mingyu Ding, Wei Zhan*
 
-Official Repo for WOMD-Reasoning: A Large-Scale Language Dataset for Interaction and Driving Intentions Reasoning. Waymo Open Motion Dataset and WOMD are trademarks of Waymo LLC, and are used here by permission.
+Official Repo for WOMD-Reasoning: A Large-Scale Language Dataset for Interaction and Driving Intentions Reasoning, an ICML 2025 paper. Waymo Open Motion Dataset and WOMD are trademarks of Waymo LLC, and are used here by permission.
 
 *Note: The dataset has been moved to [Waymo Official Website](https://waymo.com/open/download) for viewing and downloading.*
 
